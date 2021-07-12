@@ -1,15 +1,31 @@
 import './App.css';
-import Header from './Header';
+import Feed from './js/Feed';
+import Header from './js/Header';
+import Login from './js/Login';
+import Sidebar from './js/Sidebar';
+import Widgets from './js/Widgets';
 
 function App() {
+  const user = "ksdjf";
   return (
     <div className="app">
-      {/*Header */}
-      <Header/>
-      {/*App body */}
-        {/* Sidebar*/}
-        {/* Feed */}
-        {/* Widgets */}
+      {
+        !user ? (
+          <Login />
+        ):
+        (
+          <>
+            <Header/>
+            <div className="app__body">
+              <Sidebar />
+              <Feed />
+              <Widgets/>
+            </div>
+            
+          </>
+        )
+      }
+      
     </div>
   );
 }
